@@ -9,17 +9,27 @@ This Python script converts structured **JSON data** into a formatted **Word doc
 ✅ **YAML Configuration** – Static text (segment headers, table titles) is externalized.  
 ✅ **Scalable & Modular Design** – Easily extendable for new object types and formats.  
 ✅ **Unit Testing Included** – Ensures data is correctly processed and output matches expectations.  
+✅ **Automated Testing** – Tests now check both document paragraphs and tables for expected content.  
 
 ---
 
 ## 📂 Project Structure  
 ```
 /json_to_docx
-│── script.py         # Main script to generate the Word document
-│── static_text.yaml  # Stores static text (segment names, table titles)
-│── example.json      # Sample JSON input data
-│── test_script.py    # Unit tests to validate output
-│── README.md         # Project documentation
+│── data/
+│   │── example.json      # Sample JSON input data
+│   │── static_text.yaml  # Stores static text (segment names, table titles)
+│
+│── output/
+│   │── output.docx       # Generated Word document
+│
+│── src/
+│   │── script.py         # Main script to generate the Word document
+│
+│── tests/
+│   │── test_script.py    # Unit tests to validate output
+│
+│── README.md             # Project documentation
 ```
 
 ---
@@ -28,8 +38,8 @@ This Python script converts structured **JSON data** into a formatted **Word doc
 
 ### 1️⃣ Clone the Repository  
 ```sh
-git clone https://github.com/yourusername/json-to-docx.git
-cd json-to-docx
+git clone https://github.com/Michael-Lizzio/upwork-jsonToWord.git
+cd upwork-jsonToWord
 ```
 
 ### 2️⃣ Install Dependencies  
@@ -39,15 +49,15 @@ pip install python-docx pyaml
 
 ### 3️⃣ Run the Script  
 ```sh
-python script.py
+python src/script.py
 ```
-This will generate `output.docx` with structured content based on `example.json`.
+This will generate `output/output.docx` with structured content based on `data/example.json`.
 
 ---
 
 ## 💑 Input & Configuration  
 
-### 🏋️ JSON Input (`example.json`)
+### 🏋️ JSON Input (`data/example.json`)
 ```json
 {
     "segment1": [
@@ -57,7 +67,7 @@ This will generate `output.docx` with structured content based on `example.json`
 }
 ```
 
-### 🗒️ YAML Static Text (`static_text.yaml`)
+### 🗒️ YAML Static Text (`data/static_text.yaml`)
 ```yaml
 segments:
   segment1: "Segment 1 Header"
@@ -73,19 +83,20 @@ tables:
 
 ## 🚀 Script Workflow (`script.py`)  
 
-1️⃣ **Reads JSON data** – Loads structured data from `example.json`.  
-2️⃣ **Loads static text** – Extracts segment headers and table titles from `static_text.yaml`.  
+1️⃣ **Reads JSON data** – Loads structured data from `data/example.json`.  
+2️⃣ **Loads static text** – Extracts segment headers and table titles from `data/static_text.yaml`.  
 3️⃣ **Generates document** – Iterates through five segment types, creating three tables per segment.  
-4️⃣ **Saves output** – Exports a `.docx` file with structured content.  
+4️⃣ **Saves output** – Exports a `.docx` file in `output/output.docx` with structured content.  
 
 ---
 
 ## 🧠 Running Unit Tests  
 ```sh
-python -m unittest test_script.py
+python -m unittest discover tests
 ```
 ✅ **Checks if JSON data appears in the output document.**  
 ✅ **Ensures segment structures match expected formatting.**  
+✅ **Validates content inside both paragraphs and tables.**  
 
 ---
 
