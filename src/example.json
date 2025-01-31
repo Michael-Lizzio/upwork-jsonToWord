@@ -1,0 +1,9 @@
+{
+    "segment1": [
+        {"name": "Object A", "value": 100, "description": "Test object"},
+        {"name": "Object B", "value": 200, "description": "Another test"}
+    ],
+    "segment2": [
+        {"name": "Object C", "value": 300, "description": "Different segment"}
+    ]
+}
